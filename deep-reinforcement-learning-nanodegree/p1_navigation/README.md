@@ -34,6 +34,11 @@ The task is episodic, and in order to solve the environment, your agent must get
 
 2. Place the file inside this GitHub repository (p1_navigation/) folder, and unzip (or decompress) the file. 
 
+3. Install dependencies.
+```
+pip install -r requirements.txt
+```
+
 ### Instructions
 
 To start training, simply run train.py script with python 3.6 or above. Alternatively, you can open Navigation.ipynb to check the training plot and start experimenting with the code. A report of the project is included as well.
