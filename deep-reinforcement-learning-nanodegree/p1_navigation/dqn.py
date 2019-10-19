@@ -18,7 +18,6 @@ UPDATE_EVERY = 4        # how often to update the network
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-
 class DQN:
 
     def __init__(self, state_size, action_size, seed):
@@ -43,8 +42,6 @@ class DQN:
         if self.t_step % UPDATE_EVERY == 0:
             if len(self.replay_buffer) > BATCH_SIZE:   # if enough samples
                 self.learn(self.replay_buffer.sample(), GAMMA)
-
-
 
     def predict(self, state, eps=0.):
         """Returns action from e-greedy policy"""
@@ -77,8 +74,7 @@ class DQN:
 
         # Compute loss
         loss = F.mse_loss(Q_predictions, Q_targets)
-
-        
+     
         # Minimize the loss
         self.optimizer.zero_grad()
         loss.backward()

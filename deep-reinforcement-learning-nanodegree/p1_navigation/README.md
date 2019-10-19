@@ -36,4 +36,4 @@ The task is episodic, and in order to solve the environment, your agent must get
 
 ### Instructions
 
-To start training, simply run main.py script with python 3.6 or above.
+To start training, simply run train.py script with python 3.6 or above. Alternatively, you can open Navigation.ipynb to check the training plot and start experimenting with the code. A report of the project is included as well.
