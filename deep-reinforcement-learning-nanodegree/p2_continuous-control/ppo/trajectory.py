@@ -2,37 +2,27 @@ import numpy as np
 
 class Trajectory(object):
     def __init__(self):
-        self.data = {}
-        self.data['state'] = []
-        self.data['reward'] = []
-        self.data['prob'] = []
-        self.data['action'] = []
-        self.data['value'] = []
-        self.data['done'] = []
+        self.traj = {}
+        self.traj['state'] = []
+        self.traj['reward'] = []
+        self.traj['prob'] = []
+        self.traj['action'] = []
+        self.traj['value'] = []
+        self.traj['done'] = []
         self.score = 0.
 
-    def add(self, states, rewards, probs, actions, values, dones):
-        # multi-agent
-        self.data['state'].append(states)
-        self.data['reward'].append(rewards)
-        self.data['prob'].append(probs)
-        self.data['action'].append(actions)
-        self.data['value'].append(values)
-        self.data['done'].append(dones)
+    def add(self, states, rewards, log_probs, actions, values, dones):
+        self.traj['state'].append(states)
+        self.traj['reward'].append(rewards)
+        self.traj['prob'].append(log_probs)
+        self.traj['action'].append(actions)
+        self.traj['value'].append(values)
+        self.traj['done'].append(dones)
         self.score += np.mean(rewards)
-        
-        # single-agent
-        # traj = zip(states, rewards, probs, actions, values)
-        # for state, reward, prob, action, value in traj:
-        #     self.data['state'].append(state)
-        #     self.data['reward'].append(reward)
-        #     self.data['prob'].append(prob)
-        #     self.data['action'].append(action)
-        #     self.data['value'].append(value)
-        #     self.score += np.mean(reward)
+
 
     def __len__(self):
-        return len(self.data['state'])
+        return len(self.traj['state'])
 
     def __getitem__(self, key):
-        return self.data[key]
+        return self.traj[key]
