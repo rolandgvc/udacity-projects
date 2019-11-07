@@ -89,7 +89,7 @@ class PPO:
         old_values = torch.Tensor(trajectories['value'])
         dones = torch.Tensor(trajectories['done'])
 
-        # Calculate the advantages (TD online style)
+        # Calculate the advantages
         processed_rollout = [None] * (len(dones))
         advantages = torch.Tensor(np.zeros((self.num_agents, 1)))
         i_max = len(states)
@@ -97,7 +97,7 @@ class PPO:
             terminals_ = 1. - torch.Tensor(dones[i]).unsqueeze(1)
             rwrds_ = torch.Tensor(rewards[i]).unsqueeze(1)
             values_ = torch.Tensor(old_values[i])
-            next_value_ = old_values[min(i_max-1, i + 1)]
+            next_value_ = old_values[min(i_max-1, i+1)]
 
             td_error = rwrds_ + self.gamma * terminals_ * next_value_.detach()
             td_error -= values_.detach()
@@ -105,7 +105,7 @@ class PPO:
             processed_rollout[i] = advantages
 
         advantages = torch.stack(processed_rollout).squeeze(2)
-        advantages = (advantages - advantages.mean()) / advantages.std()
+        advantages = (advantages - advantages.mean()) / advantages.std() # normalize
 
         # Learn in batches
         batcher = Batcher(self.batch_size, [np.arange(states.size(0))])
