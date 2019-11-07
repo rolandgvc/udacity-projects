@@ -8,7 +8,7 @@
 
 ### Project Details
 
-In this project, I implemented Proximal Polixy Optimization (PPO) in PyTorch and tuned it in order to solve the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment in under 150 episodes.
+In this project, I implemented Proximal Polixy Optimization (PPO) in PyTorch and tuned it to solve the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment in under 100 episodes.
 
 ![Trained Agent][image1]
 
