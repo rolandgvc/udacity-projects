@@ -1,6 +1,6 @@
 # Udacity Projects
 
-This is my repository with projects completed during Udacity's nanodegrees.
+This is my repository of completed projects taken during Udacity's nanodegrees.
 
 ## Deep Reinforcement Learning Nanodegree
 [//]: # (Image References)
