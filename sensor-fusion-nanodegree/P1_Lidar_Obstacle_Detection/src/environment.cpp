@@ -92,7 +92,7 @@ void cityBlock(pcl::visualization::PCLVisualizer::Ptr& viewer, ProcessPointCloud
   float distanceThreshold = 0.3;
   // cluster
   float clusterTolerance = 0.7;
-  int minClusterSize = 40;
+  int minClusterSize = 10;
   int maxClusterSize = 140;
 
   // Filter cloud, to reduce omputational cost
